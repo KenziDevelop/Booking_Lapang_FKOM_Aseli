@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Booking_Lapang_FKOM" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">#001F3F</item>
+        <item name="colorPrimaryVariant">#001F3F</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- Secondary brand color (opsional) -->
+        <item name="colorSecondary">#001F3F</item>
+        <item name="colorSecondaryVariant">#001F3F</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">#001F3F</item>
+    </style>
+
+    <style name="Theme.Booking_Lapang_FKOM" parent="Base.Theme.Booking_Lapang_FKOM" />
+
+    <!-- STYLE KHUSUS UNTUK MATERIALCALENDARVIEW -->
+    <!-- Header bulan (Desember 2025) -->
+    <style name="MyCalendarHeaderText">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Hari dalam seminggu (Min, Sen, dst) -->
+    <style name="MyCalendarWeekDayText">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Tanggal di grid -->
+    <style name="MyCalendarDateText">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Hari yang dipilih (selected) -->
+    <style name="MyCalendarSelectedDateText">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+</resources>
