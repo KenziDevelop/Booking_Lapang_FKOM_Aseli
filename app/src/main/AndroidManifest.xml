@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,6 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Booking_Lapang_FKOM">
+        <activity android:name=".OnboardingIntroActivity" />
+        <activity android:name=".SplashScreen1Activity" />
+        <activity android:name=".SplashScreen2Activity" />
+        <activity android:name=".SplashScreen3Activity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".KalenderBookingActivity" />
+        <activity android:name=".BookingActivity" />
+        <activity android:name=".RiwayatBookingActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".PengaturanActivity" />
+        <activity android:name=".PersetujuanBookingActivity" />
+        <activity android:name=".AdminProfileActivity" />
+        <activity android:name=".BookingAulaActivity" />
+        <activity android:name=".BookingKelasActivity" />
+        <activity android:name=".BookingTeknologiActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

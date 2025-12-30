@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.kotlin.plugin.parcelize")
+
 }
 
 android {
@@ -51,6 +53,9 @@ dependencies {
     implementation(libs.androidx.viewpager2) // Menggunakan version catalog
     implementation(libs.material.calendarview) // Menggunakan version catalog
     implementation(libs.circleimageview)      // Menggunakan version catalog
+
+    // --- Dependensi untuk ThreeTenABP ---
+    implementation("com.jakewharton.threetenabp:threetenabp:1.4.7") // Tambahkan ini
 
     // --- Dependensi untuk Testing ---
     testImplementation(libs.junit)

@@ -1,24 +1,27 @@
 package com.pab.booking_lapang_fkom
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Wajib ada setContentView, meskipun ga keliatan
+        // Bisa pakai layout kosong atau layout splash sederhana
+        setContentView(android.R.layout.activity_list_item) // cukup pakai layout bawaan Android
 
-        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        val onboardingShown = prefs.getBoolean("onboarding_shown", false)
+        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+        val onboardingDone = prefs.getBoolean("onboarding_done", false)
 
-        if (onboardingShown) {
-            // Langsung ke login kalau onboarding sudah pernah dilihat
-            startActivity(Intent(this, LoginActivity::class.java))
+        val targetActivity = if (onboardingDone) {
+            LoginActivity::class.java
         } else {
-            // Tampilkan onboarding dulu
-            startActivity(Intent(this, OnboardingActivity::class.java))
+            OnboardingIntroActivity::class.java
         }
-        finish() // Tutup MainActivity biar tidak kembali ke sini saat tekan back
+
+        startActivity(Intent(this, targetActivity))
+        finish() // tutup MainActivity biar ga numpuk di back stack
     }
 }

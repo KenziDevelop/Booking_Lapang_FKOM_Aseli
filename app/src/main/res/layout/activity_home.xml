@@ -56,7 +56,6 @@
                             android:textSize="22sp"
                             android:textStyle="bold" />
 
-                        <!-- Foto Profil (opsional, kalau mau pakai CircleImageView) -->
                         <ImageView
                             android:id="@+id/imageProfile"
                             android:layout_width="80dp"
@@ -104,39 +103,25 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Lapangan Tersedia -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Menu Cepat (Daftar Card Besar) -->
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:text="Menu Cepat"
+                android:textColor="#001F3F"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="32dp" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Lapangan Tersedia"
-                    android:textColor="#001F3F"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lihat Semua"
-                    android:textColor="#001F3F"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-            <!-- Card Lapangan 1 -->
+            <!-- Card Booking Lapangan -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardLapangan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
-                android:layout_marginBottom="32dp">
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -147,8 +132,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-                        android:src="@drawable/ic_lapangan"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/lapangan_11zon"
                         android:layout_marginBottom="16dp" />
 
                     <LinearLayout
@@ -161,7 +146,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Lapangan 1"
+                            android:text="Lapangan"
                             android:textColor="#333333"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -182,86 +167,164 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Menu Cepat -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Menu Cepat"
-                android:textColor="#001F3F"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
-
-            <LinearLayout
+            <!-- Card Booking Aula -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginEnd="8dp">
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/aula" /> <!-- ganti dengan gambar aula kalau ada -->
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="24dp">
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/ic_calendar"
-                            app:tint="#001F3F" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp">
 
                         <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Aula"
+                            android:textColor="#333333"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kalender"
-                            android:textColor="#333333"
+                            android:text="Tersedia"
+                            android:textColor="#FFFFFF"
                             android:textSize="14sp"
-                            android:layout_marginTop="12dp" />
+                            android:backgroundTint="#4CAF50"
+                            app:cornerRadius="20dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp" />
 
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card Booking Kelas -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardKelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginStart="8dp">
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/kelas" /> <!-- ganti dengan gambar kelas -->
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="24dp">
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/ic_history"
-                            app:tint="#001F3F" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp">
 
                         <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Kelas"
+                            android:textColor="#333333"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Riwayat"
-                            android:textColor="#333333"
+                            android:text="Tersedia"
+                            android:textColor="#FFFFFF"
                             android:textSize="14sp"
-                            android:layout_marginTop="12dp" />
+                            android:backgroundTint="#4CAF50"
+                            app:cornerRadius="20dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp" />
 
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card Booking Teknologi -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTeknologi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="80dp"> <!-- space untuk bottom nav + FAB -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/teknologi" /> <!-- ganti dengan gambar teknologi -->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Teknologi"
+                            android:textColor="#333333"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tersedia"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:backgroundTint="#4CAF50"
+                            app:cornerRadius="20dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -279,7 +342,7 @@
         app:menu="@menu/bottom_nav_menu"
         app:itemRippleColor="@null" />
 
-    <!-- FAB + Besar di Tengah -->
+    <!-- FAB + di Tengah (di atas Bottom Nav) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
@@ -289,9 +352,9 @@
         app:backgroundTint="#001F3F"
         app:tint="#FFFFFF"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
-        app:borderWidth="0dp"
-        app:elevation="8dp"
-        app:pressedTranslationZ="12dp" />
+        android:layout_marginBottom="76dp"
+    app:borderWidth="0dp"
+    app:elevation="8dp"
+    app:pressedTranslationZ="12dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
