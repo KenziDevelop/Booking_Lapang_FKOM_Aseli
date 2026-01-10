@@ -31,7 +31,7 @@
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BookLapang"
+            android:text="BookFacility"
             android:textColor="#FFFFFF"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -43,7 +43,7 @@
             android:id="@+id/textSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Universitas Kuningan - Kampus 2"
+            android:text="Universitas Kuningan"
             android:textColor="#BBBBBB"
             android:textSize="18sp" />
 

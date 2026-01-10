@@ -15,7 +15,10 @@ class RegisterActivity : AppCompatActivity() {
         binding = RegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tombol Kembali (ImageButton)
+        // Ubah teks tombol jadi "Daftar" (karena di XML tertulis "Masuk")
+        binding.btnRegister.text = "Daftar"
+
+        // Tombol Kembali
         binding.btnBack.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
@@ -27,63 +30,59 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
 
-        // Tombol Daftar (yang teksnya masih "Masuk" — kita ubah jadi "Daftar")
-        binding.btnRegister.text = "Daftar"  // ubah teks tombol jadi "Daftar"
-
+        // Proses Registrasi
         binding.btnRegister.setOnClickListener {
-            val nama = binding.tilNama.editText?.text.toString().trim()
-            val nim = binding.tilNim.editText?.text.toString().trim()
-            val email = binding.tilEmail.editText?.text.toString().trim()
-            val phone = binding.tilPhone.editText?.text.toString().trim()
-            val password = binding.tilPassword.editText?.text.toString()
-            val confirmPassword = binding.tilConfirmPassword.editText?.text.toString()
+            registerUser()
+        }
+    }
 
-            // Validasi semua field wajib diisi
-            when {
-                nama.isEmpty() -> {
-                    binding.tilNama.error = "Nama wajib diisi"
-                    return@setOnClickListener
-                }
-                nim.isEmpty() -> {
-                    binding.tilNim.error = "NIM wajib diisi"
-                    return@setOnClickListener
-                }
-                email.isEmpty() -> {
-                    binding.tilEmail.error = "Email wajib diisi"
-                    return@setOnClickListener
-                }
-                phone.isEmpty() -> {
-                    binding.tilPhone.error = "No. Telepon wajib diisi"
-                    return@setOnClickListener
-                }
-                password.isEmpty() -> {
-                    binding.tilPassword.error = "Password wajib diisi"
-                    return@setOnClickListener
-                }
-                confirmPassword.isEmpty() -> {
-                    binding.tilConfirmPassword.error = "Konfirmasi password wajib diisi"
-                    return@setOnClickListener
-                }
-                password != confirmPassword -> {
-                    binding.tilConfirmPassword.error = "Password tidak sama"
-                    return@setOnClickListener
-                }
-                else -> {
-                    // Semua validasi lolos
-                    binding.tilNama.error = null
-                    binding.tilNim.error = null
-                    binding.tilEmail.error = null
-                    binding.tilPhone.error = null
-                    binding.tilPassword.error = null
-                    binding.tilConfirmPassword.error = null
+    private fun registerUser() {
+        val nama = binding.tilNama.editText?.text.toString().trim()
+        val nim = binding.tilNim.editText?.text.toString().trim()
+        val email = binding.tilEmail.editText?.text.toString().trim()
+        val phone = binding.tilPhone.editText?.text.toString().trim()
+        val password = binding.tilPassword.editText?.text.toString()
+        val confirmPassword = binding.tilConfirmPassword.editText?.text.toString()
 
-                    // Tampilkan notif berhasil
-                    Toast.makeText(this, "Registrasi berhasil!", Toast.LENGTH_LONG).show()
+        // Reset error sebelumnya
+        binding.tilNama.error = null
+        binding.tilNim.error = null
+        binding.tilEmail.error = null
+        binding.tilPhone.error = null
+        binding.tilPassword.error = null
+        binding.tilConfirmPassword.error = null
 
-                    // Pindah ke login
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
+        when {
+            nama.isEmpty() -> binding.tilNama.error = "Nama Lengkap wajib diisi"
+            nim.isEmpty() -> binding.tilNim.error = "NIM wajib diisi"
+            email.isEmpty() -> binding.tilEmail.error = "Email wajib diisi"
+            !email.endsWith("@uniku.ac.id") -> binding.tilEmail.error = "Gunakan email kampus @uniku.ac.id"
+            phone.isEmpty() -> binding.tilPhone.error = "No. Telepon wajib diisi"
+            password.length < 6 -> binding.tilPassword.error = "Password minimal 6 karakter"
+            confirmPassword != password -> binding.tilConfirmPassword.error = "Konfirmasi password tidak sama"
+            else -> {
+                // Simpan ke SharedPreferences
+                val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
+                val editor = prefs.edit()
+
+                // Cek apakah email sudah terdaftar
+                if (prefs.contains("${email}_password")) {
+                    Toast.makeText(this, "Email ini sudah terdaftar!", Toast.LENGTH_SHORT).show()
+                    return
                 }
+
+                editor.apply {
+                    putString("${email}_nama", nama)
+                    putString("${email}_nim", nim)
+                    putString("${email}_phone", phone)
+                    putString("${email}_password", password)  // plain text untuk prototype
+                    apply()
+                }
+
+                Toast.makeText(this, "Registrasi berhasil! Silakan masuk", Toast.LENGTH_LONG).show()
+
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
             }
         }
     }

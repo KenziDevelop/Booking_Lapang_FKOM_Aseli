@@ -8,8 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Wajib ada setContentView, meskipun ga keliatan
-        // Bisa pakai layout kosong atau layout splash sederhana
+
         setContentView(android.R.layout.activity_list_item) // cukup pakai layout bawaan Android
 
         val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
@@ -22,6 +21,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         startActivity(Intent(this, targetActivity))
-        finish() // tutup MainActivity biar ga numpuk di back stack
+        finish()
     }
 }
