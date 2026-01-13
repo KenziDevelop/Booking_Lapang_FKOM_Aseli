@@ -14,7 +14,7 @@ class AdminHomeActivity : AppCompatActivity() {
         binding = ActivityAdminHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Tombol "Lihat semua permohonan" -> ke persetujuan booking
+        // Tombol persetujuan booking
         binding.btnLihatPermohonan.setOnClickListener {
             startActivity(Intent(this, PersetujuanBookingActivity::class.java))
         }
@@ -23,7 +23,6 @@ class AdminHomeActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    // Sudah di home admin, ga perlu pindah
                     true
                 }
                 R.id.nav_kalender -> {
@@ -42,12 +41,11 @@ class AdminHomeActivity : AppCompatActivity() {
             }
         }
 
-        // 3. FAB + -> ke form booking (admin juga bisa buat booking)
+        // 3. FAB ke form booking )
         binding.fabAdd.setOnClickListener {
             startActivity(Intent(this, BookingActivity::class.java))
         }
 
-        // Default selected = Home
         binding.bottomNavigation.selectedItemId = R.id.nav_home
     }
 }

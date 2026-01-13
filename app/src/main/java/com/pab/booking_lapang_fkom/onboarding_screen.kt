@@ -16,11 +16,10 @@ class OnboardingIntroActivity : AppCompatActivity() {
         binding = OnboardingScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Otomatis pindah ke splashscreen1 setelah 5 detik
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, SplashScreen1Activity::class.java)
             startActivity(intent)
-            finish() // tutup intro biar ga bisa kembali
+            finish()
         }, 5000) // 5000 ms = 5 detik
     }
 }

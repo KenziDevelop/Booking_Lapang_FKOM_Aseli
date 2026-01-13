@@ -13,9 +13,8 @@ class PengaturanActivity : AppCompatActivity() {
         binding = ActivityPengaturanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tambah tombol kembali kalau perlu
         binding.btnBack.setOnClickListener {
-            finish() // kembali ke profile
+            finish()
         }
     }
 }

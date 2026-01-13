@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
         binding = LoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tombol Masuk
+        // Tombol Masuk (user biasa)
         binding.btnLogin.setOnClickListener {
             performLogin()
         }
@@ -26,10 +26,10 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        // Login Sebagai Admin (sementara placeholder)
+        // Login Sebagai Admin → pindah ke halaman login admin
         binding.textAdminLogin.setOnClickListener {
-            Toast.makeText(this, "Fitur login admin belum tersedia", Toast.LENGTH_SHORT).show()
-            // nanti bisa buat AdminLoginActivity kalau perlu
+            startActivity(Intent(this, AdminLoginActivity::class.java))
+            // finish() → opsional, kalau mau user bisa balik ke login biasa pakai tombol back
         }
 
         // Lupa Password (placeholder)
@@ -69,10 +69,8 @@ class LoginActivity : AppCompatActivity() {
             val nama = prefs.getString("${email}_nama", "Mahasiswa")
             Toast.makeText(this, "Selamat datang, $nama!", Toast.LENGTH_SHORT).show()
 
-            // Simpan status sudah login (opsional, untuk auto-login nanti)
             prefs.edit().putBoolean("is_logged_in", true).apply()
 
-            // Pindah ke Home
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         } else {

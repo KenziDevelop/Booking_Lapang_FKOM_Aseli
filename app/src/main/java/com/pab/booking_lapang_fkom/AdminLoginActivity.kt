@@ -18,10 +18,10 @@ class AdminLoginActivity : AppCompatActivity() {
         binding.btnAdminLogin.setOnClickListener {
             val intent = Intent(this, AdminHomeActivity::class.java)
             startActivity(intent)
-            finish() // optional: tutup login admin biar ga bisa kembali
+            finish() // biar ga bisa kembali
         }
 
-        // Tombol Kembali ke Login Mahasiswa -> ke login.xml
+        // ke Login Mahasiswa -> ke login.xml
         binding.textBackToStudent.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

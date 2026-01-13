@@ -18,7 +18,7 @@ class PersetujuanBookingActivity : AppCompatActivity() {
         binding = ActivityPersetujuanBookingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tombol Kembali -> ke Admin Home
+        // Tombol Kembali ke Admin Home
         binding.btnBack.setOnClickListener {
             startActivity(Intent(this, AdminHomeActivity::class.java))
             finish()
@@ -73,7 +73,6 @@ class PersetujuanBookingActivity : AppCompatActivity() {
     }
 
     private fun saveAllBookings() {
-        // Simpan ulang semua booking dengan status terbaru
         val prefs = getSharedPreferences("booking_prefs", MODE_PRIVATE)
         val editor = prefs.edit()
         val set = mutableSetOf<String>()

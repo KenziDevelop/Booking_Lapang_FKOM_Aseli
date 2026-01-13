@@ -21,10 +21,10 @@ class BookingActivity : AppCompatActivity() {
         binding = ActivityBookingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Default tanggal hari ini
+        // Default tanggal
         binding.textTanggal.text = dateFormat.format(Date())
 
-        // Setup klik waktu
+        // Setup waktu
         val timeCards = listOf(
             binding.time1 to "08.00 - 10.00",
             binding.time2 to "10.00 - 12.00",
@@ -39,9 +39,9 @@ class BookingActivity : AppCompatActivity() {
                 // Reset semua card
                 timeCards.forEach { it.first.setCardBackgroundColor(android.graphics.Color.parseColor("#FFFFFF")) }
 
-                // Highlight yang dipilih
+                // Highlight
                 card.setCardBackgroundColor(android.graphics.Color.parseColor("#001F3F"))
-                // Lakukan casting ke TextView sebelum mengubah warna teks
+
                 (card.getChildAt(0) as TextView).setTextColor(android.graphics.Color.WHITE)
 
                 selectedTime = time
@@ -64,7 +64,7 @@ class BookingActivity : AppCompatActivity() {
 
             val bookingData = "Lapangan: $lapangan\nTanggal: $tanggal\nWaktu: $selectedTime\nStatus: Pending"
 
-            // Simpan sebagai list sederhana (kita tambah ke list existing)
+            // Simpan sebagai list sederhana
             val currentBookings = prefs.getStringSet("bookings", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
             currentBookings.add(bookingData)
             editor.putStringSet("bookings", currentBookings)
